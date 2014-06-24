@@ -1,0 +1,281 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% PAKETI
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% geometrija stranice
+% margine postavljene kao sto i pise u obrascu DR.SC.08
+\usepackage[margin=25mm,centering]{geometry} 
+
+% prihvaca tex kod kao UTF-8 omogućavajući
+% pisanje znakova s dijakriticima unutar datoteke
+% npr. možemo pisati 'č' umjesto č
+% PAZITI DA SU DATOTEKE STVARNO SPREMLJENE KAO UTF-8
+% nije korisno ako se namjerava koristiti 'latexdiff'
+\usepackage[utf8]{inputenc}
+% korisnici Windowsa trebaju odkomentirati
+% sljedeću liniju te zakomentirati prijašnju
+% \usepackage[utf-8]{inputenc}
+
+% omogućiti ispisivanje naših znakova u dokumentu 
+\usepackage[T1]{fontenc}
+
+% koristi novu verziju fonta (Latin Modern)
+\usepackage{lmodern}
+
+% Palatino font (blizu Arial-a)
+%\usepackage[sc]{mathpazo}
+
+% Times New Roman
+%\usepackage{mathptmx}
+% ili
+%\usepackage{txfonts}
+
+% koristan paket kad stvaranja pdf-a
+\usepackage[activate={true,nocompatibility},
+	final,
+	tracking=true,
+	kerning=true,
+	spacing=true,
+	factor=1100,
+	stretch=10,
+	shrink=10]{microtype}
+\microtypecontext{spacing=nonfrench}
+%\usepackage{microtype}
+
+% babel !
+\usepackage[croatian, english]{babel}
+\usepackage{csquotes}
+
+% captioni ce biti centrirani te će im ime
+% biti podebljano. Poslije imena tablica (npr. Tablica 1.1:)
+% slijedi nova linija. Nakon tablica slijedi mala praznina
+\usepackage[center,labelfont=bf]{caption}
+	\captionsetup[table]{skip=10pt, labelsep=newline}
+
+% koristan paket za pisanje url-ova u tekstu
+\usepackage{url}
+
+% paketi za oblikovanje tablica
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{array}
+\newcolumntype{t}{>{\ttfamily}c}
+
+% paketi za oblikovanje lista
+\usepackage[ampersand]{easylist}
+\usepackage{enumitem}
+\usepackage{enumerate}
+
+% boje, bojice, jeee :D
+\usepackage{color}
+\usepackage{xcolor}
+\definecolor{dark-red}{rgb}{0.4,0.15,0.15}
+\definecolor{dark-blue}{rgb}{0.15,0.15,0.4}
+\definecolor{medium-blue}{rgb}{0,0,0.5}
+\definecolor{black}{rgb}{0,0,0}
+
+% paket za stvaranje poveznica u elektronskom
+% dokumentu. Koristan kod objavljivanja elektronskog
+% oblika dokumenta
+\usepackage[final]{hyperref}
+%
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{naturalnames}{hyperref}
+
+\hypersetup{
+	unicode=true,           % non-Latin characters in Acrobat’s bookmarks
+	pdfauthor={Ivo Ugrina},
+	pdftitle={Hijerarhijska analiza svojstava nizova znakova metodama 
+		znanstvenog računanja i statistike},
+	pdfsubject={},
+	pdfkeywords={matematika, računarstvo, statistika},
+	colorlinks=true,        % false: boxed links; true: colored links
+	linkcolor={dark-blue},  % color of internal links (change box color with linkbordercolor)
+	citecolor={medium-blue},% color of links to bibliography
+	urlcolor={dark-red}     % color of external links
+}
+
+
+% dodatni simboli
+\usepackage{pifont}
+
+%
+% glossaries
+%
+\usepackage{supertabular}
+\usepackage[xindy,translate=false]{glossaries}
+\usepackage{glossary-mcols}
+\setglossarystyle{mcolindex}
+
+\loadglsentries{./dodatno/glossary.tex}
+
+\makeglossaries
+
+% prilagođavanje oblika naslova poglavalja (chapter),
+% potpoglavlja (section) i odjeljka (subsection)
+\usepackage{titlesec}
+	\titleformat{\chapter}[display]
+	{\normalfont\sffamily\large\centering}
+	{\centering\textsc{\chaptertitlename \ \Large \thechapter}}
+	{3ex}{\fontfamily{txfonts}\fontsize{30}{20}\selectfont}
+	\titleformat{\section}
+	{\centering\fontfamily{txfonts}\selectfont}
+	{\normalfont\fontsize{26}{16}\selectfont\thesection}{10pt}
+	{\fontsize{22}{10}\selectfont}
+	\titleformat{\subsection}
+	{\centering\fontfamily{txfonts}\selectfont}
+	{\normalfont\fontsize{20}{10}\selectfont\thesubsection}{10pt}
+	{\fontsize{16}{10}\selectfont}
+
+% crtanje !
+\usepackage{tikz}
+
+% verbatim env.
+\usepackage{moreverb}
+
+% multi tables/figures
+\usepackage{subfig}
+
+\usepackage{float}
+
+% uklucivanje slika
+\usepackage{graphicx}
+\usepackage{epstopdf}
+
+%
+% matematika
+%
+\usepackage{amssymb ,amsmath, amsthm, amsfonts}
+\allowdisplaybreaks[1]
+\usepackage{bbm}
+% xfrac je koristan paket za umetanje razlomaka unutar teksta
+\usepackage{xfrac}
+
+% headeri i footeri
+\usepackage{fancyhdr}
+
+% hack za fancyhdr i problem s headerheight-om
+% http://nw360.blogspot.com/2006/11/latex-headheight-is-too-small.html
+\setlength{\headheight}{15pt}
+
+% paketi za pisanje algoritama
+%\usepackage{algorithmic}
+\usepackage[croatian,
+	linesnumbered,
+	onelanguage]{algorithm2e}
+
+% EUROPSKI NACIN RAZDVAJANJA ODLOMAKA
+%\setlength{\parskip}{1ex plus 0.5ex minus 0.2ex}
+%\setlength{\parindent}{0pt}
+
+% indentacija na prvom paragrafu u poglavlju
+\usepackage{indentfirst}
+
+% macroi, naredbe i slicno
+\usepackage{xparse}
+
+% paket za stvaranje kazala (indeksa)
+\usepackage{makeidx}
+\makeindex
+
+% podesi prored na 1.5
+\usepackage[onehalfspacing]{setspace}
+
+% dodaje random tekst
+\usepackage{lipsum}
+
+% paketi za referenciranje
+%\usepackage{varioref}
+%\usepackage{cleveref}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% BIBLIOGRAFIJA
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% koristiti biber s dodatkom za hrvatski jezik
+% kod kompajliranja dokumenta!!!
+
+% paket za upravljanje bibliografijom
+%\usepackage[style=authoryear,citestyle=authoryear,doi=false,isbn=false,dashed=false,
+%  maxcitenames=2,maxbibnames=100]{biblatex}
+\usepackage[doi=true,
+	isbn=true,
+	url=false,
+	maxcitenames=2,
+	maxbibnames=100,
+	defernumbers=true]{biblatex}
+\AtEveryBibitem{\clearfield{note}}
+
+% ovdje dodajemo datoteke koje sadrze bibliografiju
+\addbibresource{bibliografija/palindromi.bib}
+\addbibresource{bibliografija/palindromi_ostalo.bib}
+\addbibresource{bibliografija/ostalo.bib}
+\addbibresource{bibliografija/stats.bib}
+\addbibresource{bibliografija/stats_ml.bib}
+\addbibresource{bibliografija/mojiclanci.bib}
+
+% pogledati 
+% https://tex.stackexchange.com/questions/111363/exclude-fullcite-citation-from-bibliography
+% za objasnjenje sljedece tri linije
+% korisno ako zelimo printati s \fullcite bibligrafiju u zivotopisu
+% a taj se clanak ne pojavljuje citiran u ostatku disertacije
+\DeclareBibliographyCategory{fullcited}
+\newcommand{\mybibexclude}[1]{\addtocategory{fullcited}{#1}}
+\mybibexclude{perkovic_multiparameter_2013}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% KORISNE KRATICE (teoremi, definicije, ...)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newtheoremstyle{stil}{}{}{}{}{\bfseries}{}{ }{}
+\theoremstyle{stil}
+\newtheorem{tm}{Teorem}[chapter]
+\newtheorem{defn}[tm]{Definicija}
+\newtheorem{pro}[tm]{Propozicija}
+\newtheorem{prop}[tm]{Propozicija}
+\newtheorem{lem}[tm]{Lema}
+\newtheorem{kor}[tm]{Korolar}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Izgled stranica (header, footer, ...)
+
+\fancypagestyle{plain}{
+	\fancyhf{} 
+	\renewcommand{\headrulewidth}{0pt}
+	\renewcommand{\footrulewidth}{0pt}
+	\fancyfoot[R]{\thepage} 
+
+	% sljedeća linija dodaje u footer informaciju o trenutnoj verziji dokumenta
+	% potrebno ju je zakomentirati kod finalnog ispisa
+	\fancyfoot[L]{\nouppercase{\footnotesize \today : verzija xxxx}} 
+}
+
+\pagestyle{fancy}{
+	\fancyhf{} 
+	%\renewcommand{\headrulewidth}{0pt}
+	%\renewcommand{\footrulewidth}{0pt}
+	\rhead{\nouppercase{\footnotesize \leftmark}}
+	\fancyfoot[R]{\thepage} 
+
+	% sljedeća linija dodaje u footer informaciju o trenutnoj verziji dokumenta
+	% potrebno ju je zakomentirati kod finalnog ispisa
+	\fancyfoot[L]{\nouppercase{\footnotesize \today : verzija xxxx}} 
+}
+\pagestyle{fancy}
+
+% potrebno za dodavanje naslovnice u finalni dokument
+\usepackage{pdfpages}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% postavi velicinu razmaka nakon znaka '.' (tocka)
+% uvijek na istu vrijednost. Inace ce razmak biti
+% veci na kraju recenice nego kod skracenica npr.
+
+%\frenchspacing
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% korisno za provjeravanje dokumenta u finalnoj fazi
+
+%\usepackage{refcheck}
+%\usepackage{showkeys}

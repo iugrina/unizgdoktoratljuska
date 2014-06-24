@@ -1,0 +1,76 @@
+\section{Uvod}
+
+Riječ palindrom uvriježena je među različitim
+nacijama kao izraz za niz znakova koji se
+čitaju isto slijeva nadesno i zdesna nalijevo.
+Prema hrvatskom jezičnom portalu (\cite{hjp}) definicija bi bila
+{\glqq}igra riječi u kojoj se čitanjem jedne riječi ili čitave rečenice 
+obrnutim redom dobiva isto značenje kao i pravilnim čitanjem''.
+Etimologija same riječi dolazi
+iz grčkog \emph{palindromos}: koji trči natrag
+(\emph{palin-} + \emph{-drom}).
+Vjerojatno je većini poznat iz mozgalica kojima
+se djeca zabavljaju u osnovnoj školi poput
+{\glqq}Ana voli Milovana''.
+
+Osnovno proširenje pojma palindroma
+dolazi iz područja bioinformatike gdje se palindromi
+definiraju kao nizovi znakova koji se čitaju slijeva
+isto kao i tome komplementarni niz zdesna. 
+Komplementarni niz
+se dobiva zamjenom slova klasičnim povezivanjem
+adenina, citozina, guamina i timina. Odnosno,
+\nzdna{A} se mijenja sa \nzdna{T} (i obratno) te
+\nzdna{C} sa \nzdna{G} (i obratno). Primjer palindroma u DNA
+nizu jest \nzdna{ACTAGT} jer je njegov komplementarni niz
+\nzdna{TGATCA}. Lako je uočiti 
+da su jedini mogući palindromi
+u DNA nizovima oni parne duljine.
+
+Korisnost proučavanja palindroma u DNA nizovima slijedi iz dosadašnjih
+istraživanja koja ukazuju na zaključak da su palindromi
+u molekuli DNA nužni za funkcioniranje genoma jer se često nalaze u 
+bis-djelujućim regijama, ali istovremeno predstavljaju ozbiljnu opasnost
+za genetičku stabilnost
+(\textcite{lobachev_hairpin-_2007}),
+pri čemu genetička nestabilnost palindroma raste 
+s njihovom duljinom
+(\textcite{nag_140-bp-long_1997}).
+Palindromi se nalaze i kao dijelovi regulacijskih sekvenci,
+poput operatora
+(\textcite{sinden_perfect_1983}),
+promotora
+(\textcite{thukral_two_1991}),
+terminatora 
+(\textcite{gomes_evolution_2007})
+i ishodišta replikacije
+(\textcite{chew_scoring_2005})
+te stoga čine nužan dio genetičkog materijala.
+Također, zbog definirane simetrije palindromi u DNA nizovima
+tvore sekundarne strukture poput strukture ukosnice
+čije formiranje tijekom 
+replikacije može uzrokovati {\glqq}proklizavanje''
+DNA-polimeraze te može zaustaviti replikaciju
+(\textcite{waldman_long_1999}).
+
+Višeznačnost palindroma u DNA nizovima potaknula je razna
+bioinformatička istraživanja sekvencioniranih genoma s ciljem 
+ustanovljivanja broja, duljine i rasporeda svih palindroma. 
+
+Velik dio istraživanja sastoji se od prepoznavanja
+sadrži li niz značajno 
+više palindroma od očekivanog broja
+(\textcite{robin_dna_2005})
+pa bi poznavanje distribucije
+broja palindroma u unaprijed definiranom vjerojatnosnom
+modelu DNA niza bilo od velike koristi.
+
+Osim u bioinformatici palindromi su standardni dio
+istraživanja i u diskretnoj matematici
+(područje koje se zove kombinatorika nad riječima)
+gdje, na primjer, igraju važnu ulogu pri generiranju
+Christoffelovih riječi
+s primjenama u teoriji brojeva 
+(diofantskim aproksimacijama)
+(\textcite{lothaire_applied_2005,
+fischler_palindromic_2006}).

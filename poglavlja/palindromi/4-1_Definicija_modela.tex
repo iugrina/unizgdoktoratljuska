@@ -1,0 +1,162 @@
+\subsection{Definicija modela}
+\label{pal:sec:defmodela}
+
+Neka su slučajne varijable $\tsvar{X}_n$
+nezavisne i distribuirane na sljedeći način:
+\[
+	\tsvar{X}_n \sim
+	\begin{pmatrix}
+	a_1 & a_2 & a_3 & \cdots & a_K \\
+	p_{1}^{(n)} & p_{2}^{(n)} & p_{3}^{(n)} & \cdots & p_{K}^{(n)} \\
+	\end{pmatrix}
+	\ ,
+\]
+odnosno $\vP (\tsvar{X}_n = a_k) = p_{k}^{(n)}$ za sve $n \in \setN$,
+$k \leq K$. Vrijednosti
+$a_i$ predstavljaju znakove neke abecede, a $p_{i}^{(n)}$ vjerojatnosti
+pojavljivanja tih znakova na mjestu $n$ u nizu. Skup svih znakova $a_i$
+označavat ćemo sa $\mathcal{A} = \{a_1, a_2, \ldots, a_K \}$.
+
+Neka je $\ol{\cdot} : \mathcal{A} \rightarrow \mathcal{A}$ 
+bijektivna funkcija
+takva da vrijedi $\dol{x} = x $ za svaki $x \in \mathcal{A}$.
+Takvu ćemo funkciju nazivati
+\be{funkcijom komplementarnosti}.
+\index{funkcija!komplementarnosti}
+Ukoliko budemo koristili indekse kao u izrazu $\ol{\tsvar{X}_{i+j}}$
+često ćemo pisati samo $\ol{\tsvar{X}}_{i+j}$.
+Najjednostavniji primjer funkcije komplementarnosti jest identiteta.
+
+\begin{defn}
+	\label{df:palindrom}
+	Za niz znakova $b_1$, $b_2$,\ldots, $b_M$ iz $\mathcal{A}$
+	kažemo da tvori
+	\begin{itemize}
+		\item[(i)]{
+			\be{(paran) palindrom}
+			\index{palindrom}
+			\index{palindrom!paran}
+			veličine $M$ ako je $M$ paran broj te vrijedi
+			$$
+			b_1 = \ol{b}_M,\ b_2 = \ol{b}_{M-1}, \ldots,
+			b_{\frac{M}{2}} = \ol{b}_{\frac{M}{2} +1}
+			\ ,$$}
+		\item[(ii)]{
+			\be{neparan palindrom}
+			\index{palindrom!neparan}
+			veličine $M$ ako je $M$ neparan broj te vrijedi
+			$$
+			b_1 = \ol{b}_M,\ b_2 = \ol{b}_{M-1}, \ldots,
+			b_{\frac{M-1}{2}} = \ol{b}_{\frac{M+3}{2}},
+			b_{\frac{M+1}{2}} = \ol{b}_{\frac{M+1}{2}}
+			\ ,$$}
+	\end{itemize}
+\end{defn}
+
+U ostatku teksta proučavat ćemo parne palindrome te u
+rijetkim dijelovima i neparne palindrome.
+
+\begin{napomena_}
+	\label{nap:neparnipalindromidentiteta}
+	Iz definicije neparnog palindroma vidimo da za centralni
+	element mora vrijediti $b_{\frac{M+1}{2}} = \ol{b}_{\frac{M+1}{2}}$.
+	Stoga, broj mogućih kombinacija za neparne palindrome
+	ovisi o bliskosti funkcije komplementarnosti 
+	identiteti $\ol{a}_i = a_i$ za svaki $a_i \in \mathcal{A}$.
+	Odnosno, ovisi o broju elemenata od $a_i \in \mathcal{A}$ takvih
+	da vrijedi $\ol{a}_i = a_i$.
+\end{napomena_}
+
+\begin{primjer_}[{DNA}]
+	Poznato je da se DNA nizovi sastoje od četiri slova (A-adenin,
+	C-citozin, G-guanin, T-timin) te da se prirodno uparuju
+	adenin s timinom te citozin s guaninom.
+	U uvodu smo opisali da će palindromi od značaja u DNA nizovima
+	biti dani funkcijom komplementarnosti
+	$\ol{A}=T$, $\ol{C}=G$, $\ol{G}=C$, $\ol{T}=A$,
+	odnosno prirodnim uparivanjem baza.
+	Iz napomene \ref{nap:neparnipalindromidentiteta} slijedi
+	da se u DNA nizovima ne mogu dobiti neparni palindromi.
+	Primjeri parnih palindroma u DNA nizu dani su
+	u tablici \ref{tab:primjeripalindromaudna}.
+	\begin{table}[!h] 
+		\caption{Primjeri palindroma u DNA nizovima}
+		\label{tab:primjeripalindromaudna}
+		\centering
+		\begin{tabular}{rl} \hline
+			\nzdna{ACGT} & parni palindrom duljine 4  \\
+			\nzdna{ACCGTACGGT} & parni palindrom duljine 10  \\
+			\hline
+		\end{tabular}
+	\end{table}
+\end{primjer_}
+
+Definirajmo
+\be{blok}
+\index{blok!znakova}
+znakova kao neprekinuti niz znakova duljine barem jedan.
+Točnije, blokom $B$ duljine $L_B$ smatrat ćemo bilo koji niz
+slučajnih varijabli oblika $(X_k,\cdots,X_{k+L_B-1})$
+te ćemo zbog jednostavnosti koristiti oznaku $X_k\cdots X_{k+L_B-1}$.
+Promatrat će se blokovi koji su disjunktni i povezani
+(ne postoje elementi između blokova)
+te će slučajne varijable unutar svakog bloka biti
+jednako distribuirane.
+
+Dva oblika povezivanja blokova su dopuštena
+s obzirom na povećanje niza $X_1,\ldots,X_n$ (po $n$):
+\begin{itemize}
+\item[(T1)]{
+	blokovi se mijenjaju zajedno s duljinom
+	niza $n$ zadržavajući omjere veličina blokova
+	unutar cijelog niza jednakima 
+	\begin{table}[!htpb]
+	\centering
+	\begin{tabular}{|ccc|ccccccc|c|ccccc|}
+	  &  $B_1$ &  &  & &  &  $B_2$ &  &  &  &  $B_3$ &  &  &  $B_4$ &  &  \\
+	\hline
+	\end{tabular}
+\end{table}
+}
+\item[(T2)]{
+	blokovi se izmjenjuju periodično, npr. $B_{1}B_{2}B_{3}B_{1}B_{2}B_{3}\ldots$
+}
+\end{itemize}
+Ideja blokova proizlazi iz potrebe da se opišu različiti dijelovi
+DNA nizova (npr. \glslink{dnacodingregion}{kodirajuće regije}
+i \glslink{dnanoncodingregion}{nekodirajuće regije}) koji
+mogu utjecati na broj palindroma budući da distribucije baza
+mogu biti različite u različitim blokovima.
+Na primjer, regija s visokom frekvencijom baza $A$ i $T$
+ima veću vjerojatnost sadržavati velik broj palindroma
+od regije s uniformnom razdiobom baza.
+
+U ostatku doktorskog rada podrazumijevat ćemo da su veličine blokova
+veće od duljine palindroma od interesa. U primjenama
+se takva pretpostavka podrazumijeva budući da su palindromi
+od interesa uvijek manji od regija koje opisuju blokovi
+(\textcite{lisnic_palindrome_2005}).
+
+Označimo sa $m$ fiksnu duljinu palindroma. Neka slučajna varijabla
+$\tsvar{Y}_i^{(m)}$ bude indikator da palindrom duljine $m$ završava na poziciji
+(indeksu) $i$ u nizu $\tsvar{X}_1\cdots\tsvar{X}_n$. Odnosno, za $\tsvar{Y}_i$ vrijedi
+\begin{equation}
+	\label{df:palindromslvar}
+	\tsvar{Y}_i^{(m)}=
+	\mathbbm{1}_{\{ \ol{\tsvar{X}}_{i} = \tsvar{X}_{i-m+1}\}} \cdot
+	\mathbbm{1}_{\{ \ol{\tsvar{X}}_{i-1} = \tsvar{X}_{i-m+2}\}} \cdots
+	\mathbbm{1}_{\{ \ol{\tsvar{X}}_{i-\frac{m}{2}+1} = \tsvar{X}_{i-\frac{m}{2}}\}} 
+	\ .
+\end{equation}
+
+Budući da je duljina palindroma jednaka $m$, slučajne varijable
+$\tsvar{Y}_i^{(m)}$ dobro su definirane za $i \geq m$.
+Definirajmo sada \be{broj palindroma} duljine $m$ kao slučajnu varijablu
+\begin{equation}
+	\label{df:brojpalindroma}
+	\tsvar{N}_n = \sum_{i=m}^{n} \tsvar{Y}_i^{(m)} \ .
+\end{equation}
+
+Ukoliko ubuduće iz konteksta bude jasno o kojoj se duljini palindroma
+radi, indeks $m$ će se izostavljati iz $\tsvar{Y}_i^{(m)}$ te će se pisati
+samo $\tsvar{Y}_i$.

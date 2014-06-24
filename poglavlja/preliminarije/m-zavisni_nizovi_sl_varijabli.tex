@@ -1,0 +1,133 @@
+\section{$m$-zavisni nizovi slučajnih varijabli}
+
+\begin{defn}
+	Za niz slučajnih varijabli $(\tsvar{Y}_n)$ kažemo da je 
+	\be{m-zavisan}
+	\index{$m$-zavisni nizovi slučajnih varijabli}
+	ako su za svaki $s \in \mathbb{N}$
+	skupovi slučajnih varijabli 
+	$\{\tsvar{Y}_1,\cdots,\tsvar{Y}_s\}$
+	i $\{\tsvar{Y}_{m+s+1},\tsvar{Y}_{m+s+2},\cdots\}$ nezavisni.
+\end{defn}
+
+Primjetimo da je $m$-zavisnost ekvivalentna nezavisnosti
+niza slučajnih varijabli za $m=0$.
+
+\begin{defn}
+	Za niz slučajnih varijabli $Y_n$ kažemo da je 
+	\be{stacionaran}
+	\index{stacionaran niz slučajnih varijabli}
+	ako za sve $s,t \in \mathbb{N}$
+	distribucija slučajnog vektora $(Y_t,\cdots,Y_{t+s})$
+	ne ovisi o $t$.
+\end{defn}
+
+Drugim riječima, niz je stacionaran ako distribucija
+bilo kojih $s$ sljedećih opažanja ne ovisi o vremenu
+početka promatranja.
+
+Pretpostavimo da je $(\tsvar{Y}_i)$ stacionaran
+niz $m$-zavisnih 
+slučajnih varijabli te sa $\mu = \vE{\tsvar{Y}_1}$ označimo očekivanje od $\tsvar{Y}_1$,
+sa $\sigma_{00}  = \vVar{\tsvar{Y}_1}$ varijancu od $Y_1$ i
+sa $\sigma_{0i}  = \vCov{\tsvar{Y}_t, \tsvar{Y}_{t+i}}$ kovarijancu
+između $\tsvar{Y}_t$ i $\tsvar{Y}_{t+i}$. Vrijednosti su dobro
+definirane i neovisne o $t$ zbog stacionarnosti niza.
+Također, iz $m$-zavisnosti za $i>m$ slijedi $\sigma_{0i}=0$.
+Očekivanja i varijance slučajnih varijabli
+$\tsvar{S}_n = \sum_{i=1}^{n} \tsvar{Y}_i$ dane su formulama
+%
+\begin{gather*}
+	\vE{\tsvar{S}_n} = n \mu \ ,\\
+	\vVar{\tsvar{S}_n} = \sum_{i=1}^{n} \sum_{j=1}^{n} \vCov{\tsvar{Y}_i,\tsvar{Y}_j} =
+	n \sigma_{00} + 2(n-1)\sigma_{01} + \cdots
+	2(n-m)\sigma_{0m} \ .
+\end{gather*}
+%
+Za $\konv{n}{\infty}$ vrijedi $\konv{\vVar{\tsvar{S}_n}/n}{\sigma^2}$ gdje
+je $\sigma^2 = \sigma_{00} + 2\sigma_{01} + \cdots + 2\sigma_{0m}$
+pa je po sljedećem teoremu distribucija od $\tsvar{S}_n$ aproksimativno normalna
+s očekivanjem $\mu$ i varijancom $\sigma^2$.
+
+\begin{tm}
+	\label{tm:mzavisanstacionarnicgt}
+	Neka je $\tsvar{Y}_n$ stacionaran $m$-zavisan niz slučajnih varijabli
+	s konačnim varijancama te $\tsvar{S}_n = \sum_{i=1}^{n} \tsvar{Y}_i$.
+	Tada vrijedi
+	\begin{equation}
+		\konvpd{
+			\frac{\tsvar{S}_n - \vE{\tsvar{S}_n}}{\sqrt{\vVar{\tsvar{S}_n}}}
+		}{
+			N(0,1),
+		}
+	\end{equation}
+	odnosno
+	\begin{equation}
+		\konvpd{
+			\frac{\tsvar{S}_n - \mu n}{\sqrt{n}}
+		}{
+			N(0,\sigma^2).
+		}
+	\end{equation}
+\end{tm}
+%
+U slučaju kada niz nije stacionaran asimptotska distribucija
+je također normalna uz određene uvjete. Za iskaz te
+tvrdnje potrebna nam je sljedeća definicija.
+
+\begin{defn}
+	Za slučajnu varijablu $\tsvar{X}$ definiramo 
+	slučajnu varijablu $\tsvar{X}^{\alpha}$ kao
+	\[
+		\tsvar{X}^{\alpha} =
+		\begin{cases}
+			X, & \text{za } |X| \leq \alpha \\
+			0, & \text{inače}
+		\end{cases}
+	\]
+	Za $\tsvar{X}^{\alpha}$ kažemo da je 
+	\be{odrezana}
+	\index{odrezana slučajna varijabla}
+	 u $\alpha$.
+\end{defn}
+
+
+Sljedeći nam teorem govori o konvergenciji po distribuciji
+trokutastog niza $m$-zavisnih slučajnih varijabli. Dokaz se može
+naći u \textcite{orey_central_1958}(Teorem 1).
+
+\begin{tm}[Orey] 
+\label{Thm_Orey_1958}
+\index{Teorem!Orey}
+Neka je $(p(n))$ neopadajući niz pozitivnih prirodnih brojeva
+koji teži prema beskonačnosti, $m$ pozitivan prirodan broj
+te $\tau$ pozitivan realan broj. Ako vrijede sljedeći
+uvjeti:
+\begin{itemize}
+	\item[(1)]{ $\{\tsvar{X}_{nv}\}$,
+		$v=1,\ldots,p(n)$, $n=1,\ldots$ je trokutasti
+		niz $m$-zavisnih slučajnih varijabli, }
+	%
+	\item[(2)]{ $\sum_{v=1}^{p(n)} \vE{\tsvar{X}_{nv}^{\tau}} \rightarrow \alpha$ kada 
+		$\konv{n}{\infty}$ ($\tsvar{X}_{nv}^{\tau}$ su slučajne varijable
+		$\tsvar{X}_{nv}$ odrezane u $\tau$),}
+	%
+	\item[(3)]{ $\sum_{v=1}^{p(n)} \sum_{w=1}^{p(n)} 
+		\vCov{\tsvar{X}_{nv}^{\tau}, \tsvar{X}_{nw}^{\tau}} \rightarrow \sigma^2$ kada
+		$\konv{n}{\infty}$ ,}
+	%
+	\item[(4)]{ $\sum_{v=1}^{p(n)} 
+		\vP(|\tsvar{X}_{nv}| > \epsilon ) \rightarrow 0$  za svaki $\epsilon > 0$ ,}
+	%
+	\item[(5)]{ $\sum_{v=1}^{p(n)} \vVar{\tsvar{X}_{nv}^{\tau}} = O(1)$ kada
+		$\konv{n}{\infty}$ ,}
+\end{itemize}
+tada za $n\to\infty$ vrijedi
+\[ 
+	\konvpd{ \sum_{v=1}^{p(n)} \tsvar{X}_{nv} }{  N(\alpha,\sigma^2) } \ .
+\]
+\end{tm}
+
+Opširniji pregled poznatih rezultata,
+kao i dokazi odgovarajućih tvrdnji, mogu
+se naći u ~\textcite{ferguson_course_1996}.

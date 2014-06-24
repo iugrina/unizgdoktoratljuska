@@ -1,0 +1,91 @@
+\appendix
+\chapter{C++ k\^{o}d za optimalno poravnanje
+Damerau-Levenshteinovim algoritmom}
+\label{dodatak:levenshtein}
+
+K\^{o}d prezentiran ovdje jest Proof-of-concept te
+se zasniva na rekurzivnoj definiciji ne mareći
+za efikasnost.
+
+\begin{listing}{0}
+#include <vector>
+typedef std::vector<int> rijec;
+
+rijec ptraj(int c, rijec t) {
+    rijec nova;
+    nova.push_back(c);
+    nova.insert(nova.end(), t.begin(), t.end());
+    return nova;
+}
+
+rijec ptraj(rijec c, rijec t) {
+    c.insert(c.end(), t.begin(), t.end());
+    return c;
+}
+
+struct levRez {
+    int rez;
+    std::vector<rijec> traj;
+
+    levRez() {}
+};
+
+// MATCH=1, REPLACE=2, INSERT=3,
+// DELETE=4, TRANSPOSITION=5
+levRez damlev(rijec str1, rijec str2, int i, int j, rijec traj) {
+    levRez lr;
+    if (std::min(i, j) == 0) {
+        if (i > 0)
+            traj = ptraj(rijec(i, 4), traj);
+        else if (j > 0)
+            traj = ptraj(rijec(j, 3), traj);
+        lr.rez = std::max(i, j);
+        lr.traj.push_back(traj);
+        return lr;
+    }
+
+    int x = 0;
+    rijec tmp;
+    if (str1[i - 1] !=
+        str2[j - 1]) { // i-1 sluzi prilagodbi indeksiranju od nule
+        x = 1;
+        tmp = ptraj(2, traj);
+    } else
+        tmp = ptraj(1, traj);
+
+    std::vector<levRez> L;
+    L.push_back(damlev(str1, str2, i - 1, j, ptraj(4, traj)));
+    L.push_back(damlev(str1, str2, i, j - 1, ptraj(3, traj)));
+    L.push_back(damlev(str1, str2, i - 1, j - 1, tmp));
+
+    int transp = 0;
+    if (i > 2 && j > 2 && str1[i - 2] == str2[j - 1] &&
+        str1[i - 1] == str2[j - 2]) {
+        L.push_back(damlev(str1, str2, i - 2, j - 2, ptraj(5, traj)));
+        transp = 1;
+    }
+
+    L[0].rez += 1;
+    L[1].rez += 1;
+    L[2].rez += x;
+    int m = std::min(L[0].rez, L[1].rez);
+    m = std::min(m, L[2].rez);
+    lr.rez = m;
+
+    if (transp) {
+        L[3].rez += 1;
+        lr.rez = std::min(lr.rez, L[3].rez);
+    }
+
+    // upisi minove u lr
+    for (auto &x : L) {
+        if (x.rez == lr.rez) {
+            for (auto &y : x.traj) {
+                lr.traj.push_back(y);
+            }
+        }
+    }
+
+    return lr;
+}
+\end{listing}

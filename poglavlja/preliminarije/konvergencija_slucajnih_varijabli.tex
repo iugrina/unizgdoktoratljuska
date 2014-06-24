@@ -1,0 +1,453 @@
+\section{Konvergencija slučajnih vektora i varijabli}
+
+Za $d$-dimenzionalan slučajan vektor 
+$\tsvek{X} = (\tsvar{X_1},\cdots,\tsvar{X_d})$
+\be{funkciju distribucije od $\tsvek{X}$}
+\index{funkcija distribucije slučajnog vektora}
+definiramo sa
+$F_{\tsvek{X}}(x) = 
+\vP( \tsvek{X} \leq \tv{x} ) =
+\vP( \tsvar{X_1} \leq x_1, \cdots, \tsvar{X_d} \leq x_d)$
+za sve $\tv{x}=(x_1,\cdots,x_d) \in \mathbb{R}^d$. 
+\be{Euklidsku normu}
+\index{euklidska norma}
+od $\tv{x}=(x_1,\cdots,x_d) \in \mathbb{R}^d$
+označavamo s $|\tv{x}| = (x_{1}^{2}+\cdots+x_{d}^{2})^{\sfrac{1}{2}}$.
+
+\begin{defn}
+	Za niz slučajnih vektora $(\tsvek{X}_n)$ kažemo da 
+	konvergira slučajnom vektoru $\tsvek{X}$
+%
+\begin{itemize}
+	\item[(i)]{\be{gotovo sigurno (g.s.)}
+		\index{konvergencija!gotovo sigurno}
+		ako vrijedi
+		\begin{equation} \label{equ:konvgs}
+			\vP( \lim_{n \rightarrow \infty} \tsvek{X}_n = \tsvek{X}) = 1\ .
+		\end{equation}
+		Tada pišemo $\konvgs{\tsvek{X}_n}{\tsvek{X}}$.
+	}
+	\item[(ii)]{\be{u srednjem reda r}
+		\index{konvergencija!u srednjem reda r}
+		ako za neki realan broj $r>0$ te za $\konv{n}{\infty}$ vrijedi
+		\begin{equation}\label{equ:konvusr}
+			\vE{| \tsvek{X}_n - \tsvek{X} |^r}  \rightarrow 0\ .
+		\end{equation}
+		Tada pišemo $\konvusr{\tsvek{X}_n}{\tsvek{X}}{r}$.
+	}
+	\item[(iii)]{\be{po vjerojatnosti}
+		\index{konvergencija!po vjerojatnosti}
+		ako za svaki $\varepsilon >0$ te za $\konv{n}{\infty}$ vrijedi
+		\begin{equation}\label{equ:konvpv}
+			\vP \left( | \tsvek{X}_n - \tsvek{X} | > 
+			\varepsilon \right) \rightarrow 0 \ .
+		\end{equation}
+		Tada pišemo $\konvpv{\tsvek{X}_n}{\tsvek{X}}$.
+	}
+	\item[(iv)]{\be{po distribuciji}
+		\index{konvergencija!po distribuciji}
+		ako za sve točke $x$ u kojima je funkcija distrubucije
+		$F_{\tsvek{X}}$ slučajnog vektora $\tsvek{X}$ 
+		neprekidna (u oznaci $\tv{x} \in C(F_{\tsvek{X}})$) vrijedi
+		\begin{equation} \label{equ:konvpd}
+			F_{\tsvek{X}_n}(\tv{x}) \rightarrow F_{\tsvek{X}}(\tv{x})
+		\end{equation}
+		kada $n \rightarrow \infty$. Tada pišemo $\konvpd{\tsvek{X}_n}{\tsvek{X}}$.
+	}
+\end{itemize}
+\end{defn}
+
+Razlog isključivanja svih točaka u kojima $F_{\tsvek{X}}$ nije neprekidna, kod
+konvergencije po distribuciji, možda se čini viškom. Međutim,
+potreban (koristan) je što prikazuje sljedeći primjer.
+
+\begin{primjer_}
+	Kažemo da je slučajan vektor $\tsvek{X} \in \mathbb{R}^d$
+	\be{koncentriran}
+	\index{koncentriran slučajan vektor}
+	u točki $\tv{c} \in \mathbb{R}^d$ ako je $\vP( \tsvek{X} = \tv{c} )=1$.
+	Neka je $(\tsvar{X}_n) \in \mathbb{R}$  niz slučajnih varijabli
+	koncentriranih u točkama $\sfrac{1}{n}$ za $n=1,2,\ldots$
+	te neka je $\tsvar{X} \in \mathbb{R}$ koncentrirana u 0. Budući da
+	$\sfrac{1}{n}$ konvergira prema 0 kada $\konv{n}{\infty}$, moglo bi se
+	očekivati da će vrijediti $\konvpd{\tsvar{X}_n}{\tsvar{X}}$.
+
+	Funkcija distribucije od $\tsvar{X}_n$ dana je sa 
+	$F_{\tsvar{X}_n} = \mathbbm{1}_{[\sfrac{1}{n},\infty]}(x)$,
+	a od $\tsvar{X}$ sa $F_{\tsvar{X}} (x) = \mathbbm{1}_{[0,\infty]}(x)$.
+	Očito vrijedi
+	$\konv{F_{\tsvar{X}_n}(x)}{F_{\tsvar{X}}(x)}$ za $x \neq 0$, dok za $x=0$ vrijedi
+	$F_{\tsvar{X}_n}(0) = 0$ i $F_{\tsvar{X}} (x) = 1$. Budući da $x \notin C(F_X)$
+	uvjeti konvergencije po distribuciji su zadovoljeni.
+\end{primjer_}
+
+Sljedeća lema daje karakterizaciju konvergencije gotovo sigurno
+iz koje se lakše vidi razlika između konvergencije
+gotovo sigurno i konvergencije po vjerojatnosti.
+
+\begin{lem}
+	$\konvgs{\tsvek{X}_n}{\tsvek{X}}$ ako i samo ako za svaki
+	$\varepsilon >0$ vrijedi
+	\begin{equation} \label{equ:karakterizacijakonvgs}
+		\vP( |\tsvek{X}_k - \tsvek{X}| < \varepsilon,\ \forall k \geq n) \rightarrow 1
+	\end{equation}
+	kada $\konv{n}{\infty}$.
+\end{lem}
+
+Riječima razliku možemo opisati na sljedeći način:
+za konvergenciju po vjerojatnosti potrebno je da za svaki $\varepsilon >0$
+vjerojatnost da će se $\tsvek{X}_n$ nalaziti unutar $\varepsilon$ odmaka od 
+$\tsvek{X}$ teži
+prema 1 dok je kod konvergencije gotovo sigurno potrebno da za svaki
+$\varepsilon >0$ vjerojatnost da $\tsvek{X}_k$ ostane unutar $\varepsilon$ odmaka
+od $\tsvek{X}$ za svaki $k \geq n$ teži prema 1 kada $n$ teži prema beskonačnosti.
+
+Odnose među tipovima konvergencija slučajnih varijabli daje sljedeći teorem.
+
+\begin{tm} \label{tm:vezemedjukonvergencijama}
+	Za niz slučajnih vektora $(\tsvek{X}_n)$ i slučajan vektor $\tsvek{X}$ vrijedi
+	\begin{itemize}
+		\item[(i)]{ $\konvgs{\tsvek{X}_n}{\tsvek{X}} 
+			\implies \konvpv{\tsvek{X}_n}{\tsvek{X}}$ }
+		\item[(ii)]{ $\konvusr{\tsvek{X}_n}{\tsvek{X}}{r}
+			\implies \konvpv{\tsvek{X}_n}{\tsvek{X}}$ }
+		\item[(iii)]{ $\konvpv{\tsvek{X}_n}{\tsvek{X}} 
+			\implies \konvpd{\tsvek{X}_n}{\tsvek{X}}$ }
+	\end{itemize}
+\end{tm}
+
+Obrati ne vrijede nužno kao što pokazuju sljedeći primjeri.
+
+\begin{primjer_}
+	Po definiciji konvergencije po distribuciji slučajne varijable $\tsvar{X}_n$
+	ne moraju biti definirane na istom vjerojatnom prostoru
+	kao i njihov limes $\tsvar{X}$ pa time ne možemo ni računati
+	uvjet konvergencije po vjerojatnosti (\ref{equ:konvpv}).
+
+	Čak i ako su $\tsvar{X}_n$ i $\tsvar{X}$ definirane na istom vjerojatnosnom prostoru
+	konvergencija po distribuciji ne mora povlačiti konvergenciju po
+	vjerojatnosti. Neka su $\tsvar{X}_n \sim N(0,1)$  nezavisne i jednako distribuirane
+	($\tsvar{X}_n$ su normalne slučajne varijable s očekivanjem 0 i varijancom jednakom 1).
+	Tada vrijedi $\konvpd{\tsvar{X}_n}{\tsvar{X}_1}$ dok
+	$\nkonvpv{\tsvar{X}_n}{\tsvar{X}_1}$.
+\end{primjer_}
+
+\begin{primjer_}
+	Neka je $\tsvar{Z}$ slučajna varijabla uniformno distribuirana na intervalu $(0,1)$,
+	odnosno $\tsvar{Z} \sim U([0,1])$ i neka su 
+	$\tsvar{X}_1=1$,
+	$\tsvar{X}_2 = \mathbbm{1}_{[0,\sfrac{1}{2}]}(\tsvar{Z})$,
+	$\tsvar{X}_3 = \mathbbm{1}_{[\sfrac{1}{2},1]}(\tsvar{Z})$,
+	$\tsvar{X}_4 = \mathbbm{1}_{[0,\sfrac{1}{4}]}(\tsvar{Z})$,\ldots.
+	Odnosno, ako je $n=2^k + m$, gdje je $0 \leq m \leq 2^k$ i $k \geq 0$, tada
+	je $\tsvar{X}_n = \mathbbm{1}_{[m 2^{-k}, (m+1) 2^{-k})}(Z)$.
+	Očito $(\tsvar{X}_n)$ ne
+	konvergira za bilo koji $Z \in [0,1)$ te time 
+	$\nkonvgs{\tsvar{X}_n}{\tsvar{X}}$.
+	Međutim, $\konvusr{\tsvar{X}_n}{0}{r}$ za svaki $r>0$ i $\konvpv{\tsvar{X}_n}{0}$.
+\end{primjer_}
+
+\begin{primjer_}
+	Neka su $\tsvar{Z} \sim U([0,1])$ i $\tsvar{X}_n = 2^n \mathbbm{1}_{[0,\sfrac{1}{n}]}(\tsvar{Z})$.
+	Tada $\vE{ |\tsvar{X}_n|^r } = \frac{2^{nr}}{n} \rightarrow \infty$ pa vrijedi
+	$\nkonvusr{\tsvar{X}_n}{0}{r}$ za svaki $r>0$. Međutim, $\konvgs{\tsvar{X}_n}{0}$
+	($\{ \lim_{n\rightarrow \infty} \tsvar{X}_n = 0\} = \{\tsvar{Z} >0 \}$ i
+	$\vP(\tsvar{Z}>0) = 1$) i $\konvpv{\tsvar{X}_n}{0}$
+	(ako je $0 < \varepsilon < 1$, $\vP(|\tsvar{X}_n| > \varepsilon) =
+	P(\tsvar{X}_n = 2^n) = \sfrac{1}{n} \rightarrow 0)$.
+\end{primjer_}
+
+Iako obrati u Teoremu \ref{tm:vezemedjukonvergencijama}
+ne vrijede nužno, postoje dovoljni uvjeti kada obrati vrijede.
+Isti su dani sljedećim teoremom. 
+
+\begin{tm} Neka je $\tsvek{c}$ koncentriran slučajni vektor u $\mathbb{R}^d$.
+	Tada vrijedi
+	\begin{itemize}
+		\item[(i)]{ $\konvpd{\tsvek{X}_n}{\tsvek{c}} \implies
+			\konvpv{\tsvek{X}_n}{\tsvek{c}}$. }
+		\item[(ii)]{Ako $\konvgs{\tsvek{X}_n}{\tsvek{X}}$ i 
+			$|\tsvek{X}_n|^r \leq \tsvar{Z}$
+			za neki $r>0$ i slučajnu varijablu $\tsvar{Z}$ sa
+			$\vE{\tsvar{Z}} < \infty$
+			tada vrijedi $\konvusr{\tsvek{X}_n}{\tsvek{X}}{r}$.}
+		\item[(iii)]{[Scheff\'{e} (1947.)] Ako $\konvgs{\tsvek{X}_n}{\tsvek{X}}$,
+			$\tsvek{X}_n \geq 0$ i 
+			$\konv{\vE{\tsvek{X}_n}}{\vE{\tsvek{X}}} < \infty$ tada
+			$\konvusr{\tsvek{X}_n}{\tsvek{X}}{1}$. }
+		\item[(iv)]{$\konvpv{\tsvek{X}_n}{\tsvek{X}}$ 
+			ako i samo ako svaki niz prirodnih
+			brojeva $(a_k)$ ima podniz $(a_{p(k)})$
+			takav da $\konvgs{\tsvek{X}_{a_{p(k)}}}{\tsvek{X}}$
+			kada $\konv{k}{\infty}$. }
+	\end{itemize}
+
+\end{tm}
+
+Za funkciju $g:\setR^d \rightarrow \mathbb{R}$ kažemo da
+\be{iščezava}
+\index{iščezavajuća funkcija na kompaktu}
+izvan kompakta ako postoji kompaktan skup $K \subset \mathbb{R}^d$
+takav da vrijedi $g(\tv{x})=0$ za svaki $\tv{x} \notin K$.
+
+Veza između konvergencije po distribuciji niza slučajnih vektora
+i konvergencije po očekivanju funkcija tih vektora dana je
+sljedećim teoremom.
+
+\begin{tm}
+	Sljedeći su uvjeti ekvivalentni
+	\begin{itemize}
+		\item[(i)]{$\konvpd{\tsvek{X}_n}{\tsvek{X}}$}
+		\item[(ii)]{$\konv{\vE{g(\tsvek{X}_n)}}{\vE{g(\tsvek{X})}}$ za svaku neprekidnu
+		funkciju $g$ koja iščezava izvan kompakta.}
+		\item[(iii)]{$\konv{\vE{g(\tsvek{X}_n)}}{\vE{g(\tsvek{X})}}$ za svaku
+		ograničenu neprekidnu funkciju $g$.}
+		\item[(iv)]{$\konv{\vE{g(\tsvek{X}_n)}}{\vE{g(\tsvek{X})}}$ za svaku ograničenu izmjerivu funkciju
+			$g$ takvu da vrijedi $\vP(\tsvek{X} \in C(g))=1$.}
+	\end{itemize}
+\end{tm}
+
+Nekoliko korisnih pravila za rad s konvergencijom po vjerojatnosti
+dano je sljedećom propozicijom.
+
+\begin{pro}
+	\label{pro:pravilazakonvpv}
+	Pretpostavimo da za nizove slučajnih varijabli
+	$(\tsvar{X}_n)$ i $(\tsvar{Y}_n)$
+	i neke
+	konstante $a,b \in \mathbb{R}$ vrijedi
+	$\konvpv{\tsvar{X}_n}{a}$, $\konvpv{\tsvar{Y}_n}{b}$ 
+	te neka je $c \in \mathbb{R}$ neka konstanta.
+	Tada vrijedi
+	\begin{flalign*}
+		(i) \quad & \konvpv{cX_n}{ca} \ , & \\
+		(ii) \quad & \konvpv{X_n + Y_n}{a+b} \ , &\\
+		(iii) \quad & \konvpv{X_n Y_n}{a b} \ , &\\
+		(iv) \quad & \konvpv{\frac{X_n}{Y_n}}{\frac{a}{b}}
+		\quad \text{za } b \neq 0 \ .
+		& \\
+	\end{flalign*}
+\end{pro}
+
+Za nizove slučajnih vektora $(\tsvek{X}_n)$ i $(\tsvek{Y}_n)$ kažemo da su 
+$\be{asimptotski ekvivalentni}$
+\index{asimptotska ekvivalencija}
+ako vrijedi $\konvpv{(\tsvek{X}_n-\tsvek{Y}_n)}{0}$ kada $\konv{n}{\infty}$.
+
+Čest problem u teoriji velikih uzoraka (eng. \emph{large sample theory}) je sljedeći:
+za dani niz slučajnih vektora $(\tsvek{X}_n)$ i dani limes po distribuciji $\tsvek{X}$ 
+($\konvpd{\tsvek{X}_n}{\tsvek{X}}$) 
+treba odrediti limes po distribuciji od $(f(\tsvek{X}_n))$ za neku
+funkciju $f$. Sljedeći teoremi prezentiraju neke od rezultata
+kojima se rješavaju takvi problemi.
+
+\begin{tm} \label{tm:konvpdfunkcijavektora}
+	{\hspace{\stretch{1}}} \nopagebreak
+	\begin{itemize}
+		\item[(i)]{Ako vrijedi $\tsvek{X}_n \in \mathbb{R}^d$ i 
+			$\konvpd{\tsvek{X}_n}{\tsvek{X}}$
+			te je funkcija $f:\setR^d \rightarrow \mathbb{R}^k$
+			takva da $\vP(\tsvek{X} \in C(f)) = 1$ 
+			tada slijedi $\konvpd{f(\tsvek{X}_n)}{f(\tsvek{X})}$}
+		\item[(ii)]{Ako $\konvpd{\tsvek{X}_n}{\tsvek{X}}$ i
+			$\konvpv{(\tsvek{X}_n-\tsvek{Y}_n)}{0}$ 
+			tada
+			$\konvpd{\tsvek{Y}_n}{\tsvek{X}}$.}
+		\item[(iii)]{Ako vrijedi $\tsvek{X}_n \in \mathbb{R}^d$,
+			$\tsvek{Y}_n \in \mathbb{R}^k$,
+			$\konvpd{\tsvek{X}_n}{\tsvek{X}}$,
+			$\konvpd{\tsvek{Y}_n}{\tv{c}}$ tada
+			\begin{equation}
+				\konvpd{
+					\begin{pmatrix}
+						\tsvek{X}_n \\
+						\tsvek{Y}_n \\
+					\end{pmatrix}
+				}{
+					\begin{pmatrix}
+						\tsvek{X} \\
+						\tv{c} \\
+					\end{pmatrix}
+				}
+			\end{equation}
+		}
+	\end{itemize}
+\end{tm}
+
+U prethodnom teoremu s
+$
+\begin{pmatrix}
+	\tsvek{X}_n \\
+	\tsvek{Y}_n \\
+\end{pmatrix}
+$
+označili smo vektor iz $\mathbb{R}^{d+k}$ kojem je prvih $d$ elemenata
+dano s $\tsvek{X}_n$, a zadnjih $k$ s $\tsvek{Y}_n$, te sa $\tv{c}$
+neki koncentrirani slučajni vektor u $\setR^k$.
+
+\begin{primjer_}
+	Neka je $\tsvar{X} \sim N(0,1)$ i $\konvpd{\tsvar{X}_n}{\tsvar{X}}$.
+	Tada za funkciju
+	$f(x)=x^2$ po Teoremu \ref{tm:konvpdfunkcijavektora}
+	(dio (i)) slijedi $\konvpd{\tsvar{X}_{n}^{2}}{\tsvar{X}^2}$ budući da je
+	$f$ neprekidna. Budući je $\tsvar{X}^2 \sim \chi_{1}^{2}$ kada je
+	$\tsvar{X} \sim N(0,1)$ dobivamo $\konvpd{\tsvar{X}_{n}^{2}}{\chi_{1}^{2}}$.
+\end{primjer_}
+
+\begin{primjer_}
+	Pogledajmo primjer gdje prekidnost funkcije stvara probleme.
+	Neka je $\tsvar{X}_n = \sfrac{1}{n}$ i 
+	\[
+		f(x) = 
+		\begin{cases}
+			1, & x>0 \\
+			0, & x \leq 0
+		\end{cases}
+	\]
+	Tada $\konvpd{\tsvar{X}_n}{0}$, ali $\nkonvpd{f(\tsvar{X}_n)}{f(0)}$.
+
+\end{primjer_}
+
+\begin{primjer_}
+	Dio (iii) teorema \ref{tm:konvpdfunkcijavektora} ne može se
+	unaprijediti pretpostavljajući da $\konvpd{\tsvek{Y}_n}{\tsvek{Y}}$ 
+	te zaključivši
+	$
+	\konvpd{
+		\begin{pmatrix}
+			\tsvek{X}_n \\
+			\tsvek{Y}_n \\
+		\end{pmatrix}
+	}{
+		\begin{pmatrix}
+			\tsvek{X} \\
+			\tsvek{Y} \\
+		\end{pmatrix}
+	}
+	$.
+	Uzmimo $\tsvar{X} \sim U([0,1])$ i $\tsvar{X}_n=\tsvar{X}$
+	za svaki $n \in \mathbb{N}$,
+	$\tsvar{Y}_n = \tsvar{X}$ za $n$ neparan te $\tsvar{Y}_n=1-\tsvar{X}$
+	za $n$ paran. Tada
+	$\konvpd{\tsvar{X}_n}{\tsvar{X}}$ i 
+	$\konvpd{\tsvar{Y}_n}{U([0,1])}$, ali
+	$
+		\begin{pmatrix}
+			\tsvar{X}_n \\
+			\tsvar{Y}_n \\
+		\end{pmatrix}
+	$
+	ne konvergira po distribuciji.
+\end{primjer_}
+
+Izrazito važna posljedica teorema \ref{tm:konvpdfunkcijavektora}
+dana je sljedećim korolarom.
+
+\begin{kor}
+	\label{kor:konvpdzajednickogvektora}
+	Ako vrijedi $\tsvek{X}_n \in \mathbb{R}^d$,
+	$\konvpd{\tsvek{X}_n}{\tsvek{X}}$,
+	$\tsvek{Y}_n \in \mathbb{R}^k$, 
+	$\konvpd{\tsvek{Y}_n}{\tv{c}}$
+	te je funkcija $f:\mathbb{R}^{d+k} \rightarrow \mathbb{R}^r$
+	takva da 
+	$\vP \left(
+		\begin{pmatrix}
+			\tsvek{X} \\
+			\tv{c} \\
+		\end{pmatrix}
+		\in C(f) \right) = 1$ tada slijedi 
+	$\konvpd{f(\tsvek{X}_n,\tsvek{Y}_n)}{f(\tsvek{X},\tv{c})}$.
+\end{kor}
+
+\begin{primjer_}
+	Ako $\konvpd{\tsvek{X}_n}{\tsvek{X}}$ i 
+	$\konvpd{\tsvek{Y}_n}{\tv{c}}$ iz korolara
+	\ref{kor:konvpdzajednickogvektora}
+	slijedi $\konvpd{\tsvek{Y}_{n}^{T} \tsvek{X}_n}{\tv{c}^{T} \tsvek{X}}$ budući da je
+	skalarni produkt neprekidna funkcija.
+\end{primjer_}
+
+Kod konvergencije po vjerojatnosti vrijede analogna pravila kao
+i kod teorema \ref{tm:konvpdfunkcijavektora} osim
+što se dio (iii) može pojačati.
+
+\begin{tm}
+\label{tm:slutsky}
+%\index{Teorem!Slutsky}
+	{\hspace{\stretch{1}}} \nopagebreak
+	\begin{itemize}
+		\item[(i)]{Ako vrijedi $\tsvek{X}_n \in \mathbb{R}^d$,
+ 			$\tsvek{X} \in \mathbb{R}^d$,
+			$\konvpv{\tsvek{X}_n}{\tsvek{X}}$
+			te za funkciju $f:\mathbb{R}^d \rightarrow \mathbb{R}^k$
+			vrijedi 
+			$\vP(\tsvek{X} \in C(f)) = 1$ 
+			tada slijedi $\konvpv{f(\tsvek{X}_n)}{f(\tsvek{X})}$.}
+		\item[(ii)]{Ako $\konvpv{\tsvek{X}_n}{\tsvek{X}}$
+			i $\konvpv{(\tsvek{X}_n-\tsvek{Y}_n)}{0}$ 
+			tada $\konvpv{\tsvek{Y}_n}{\tsvek{X}}$.}
+		\item[(iii)]{Ako vrijedi $\tsvek{X}_n \in \mathbb{R}^d$,
+			$\tsvek{Y}_n \in \mathbb{R}^k$,
+			$\konvpv{\tsvek{X}_n}{\tsvek{X}}$,
+			$\konvpv{\tsvek{Y}_n}{\tsvek{Y}}$ tada
+			\begin{equation}
+				\konvpv{
+					\begin{pmatrix}
+						\tsvek{X}_n \\
+						\tsvek{Y}_n \\
+					\end{pmatrix}
+				}{
+					\begin{pmatrix}
+						\tsvek{X} \\
+						\tsvek{Y} \\
+					\end{pmatrix}
+				}
+			\end{equation}
+		}
+	\end{itemize}
+\end{tm}
+
+Lako se može pokazati da vrijedi i
+analogon teoremu \ref{tm:slutsky} za konvergenciju gotovo
+sigurno.
+
+Jedna od osnovnih klasa teorema teorije vjerojatnosti
+jesu jaki i slabi zakoni velikih brojeva. Ovdje
+izdvajamo dva najpoznatija.
+
+\begin{tm}
+\label{tm:zvb}
+	Neka su $\tsvek{X}$, $\tsvek{X}_1$, $\tsvek{X}_2$, \ldots nezavisni jednako
+	distribuirani slučajni vektori te neka je
+	$\overline{\tsvek{X}_n} = \frac{1}{n} \sum_{i=1}^{n} \tsvek{X}_i$.
+	Tada vrijedi
+	\begin{align}
+		\text{\be{jaki zakon velikih brojeva:}}
+		\quad &
+		\konvgs{\overline{\tsvek{X}_n}}{\vE{\tsvek{X}}}
+		\Leftrightarrow
+		\vE{|\tsvek{X}|} < \infty
+		\\
+		\text{\be{slabi zakon velikih brojeva:}}
+		\quad & 
+		\vE{|\tsvek{X}|} < \infty
+		\implies
+		\konvpv{\overline{\tsvek{X}_n}}{\vE{\tsvek{X}}}
+	\end{align}
+\end{tm}
+
+\noindent
+Vrijednost 
+$\overline{\tsvek{X}_n} = \frac{1}{n} \sum_{i=1}^{n} \tsvek{X}_i$
+često nazivamo
+\be{uzoračkim očekivanjem}.
+\index{uzoračko očekivanje}
+
+Opširniji pregled poznatih rezultata,
+kao i dokazi odgovarajućih tvrdnji, mogu
+se naći u ~\textcite{ferguson_course_1996},
+\textcite{sarapa2002vjerojatnost},
+\textcite{shiryaev1995probability}
+ili
+\textcite{allan2012probability}.

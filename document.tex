@@ -1,0 +1,76 @@
+\documentclass[a4paper, 12pt, oneside, openany, final, pdftex]{book}
+
+\input{./dodatno/packages.tex}
+
+\input{./dodatno/custom_environments.tex}
+
+\input{./dodatno/additional_commands.tex}
+
+\begin{document}
+\selectlanguage{croatian}
+
+\restoregeometry
+
+% dodaj naslovnice
+\includepdf[pages=-]{./naslovnice/naslov.pdf}
+
+\frontmatter
+
+\input{ostalo/Zahvala.tex}
+\input{ostalo/Sazetak_i_kljucne_rijeci.tex}
+\input{ostalo/Prosireni_sazetak_eng.tex}
+
+\tableofcontents
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\mainmatter
+
+\setcounter{chapter}{0}
+\input{poglavlja/uvod/Uvod.tex}
+
+% Chapter: Pregled poznatih tehničkih rezultata i metoda
+\input{poglavlja/preliminarije/main.tex}
+
+% Chapter: Distribucija broja palindroma u nizovima znakova
+\input{poglavlja/palindromi/main.tex}
+
+\input{poglavlja/dodatak/levenshtein_poravnanje.tex}
+   
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\backmatter
+
+\printbibliography[heading=bibintoc,
+	notcategory=fullcited]
+
+% za pojasnjenje naredbi \cleardoublepage i \phantomsection
+% pogledati:
+% https://tex.stackexchange.com/questions/57427/how-to-add-printindex-to-tableofcontents
+% https://tex.stackexchange.com/questions/9191/when-do-i-need-invoke-clearpage-manually
+% https://tex.stackexchange.com/questions/44088/when-do-i-need-to-invoke-phantomsection
+
+\renewcommand{\glossarypreamble}{
+	Popis odabranih stručnih pojmova s odgovarajućim
+	engleskim prijevodom.}
+\cleardoublepage
+\phantomsection
+\addcontentsline{toc}{chapter}{Kazalo pojmova}
+\printglossary[title=Kazalo pojmova]
+
+\cleardoublepage
+\phantomsection
+\renewcommand{\indexname}{Indeks pojmova}
+\addcontentsline{toc}{chapter}{Indeks pojmova}
+\printindex
+
+\cleardoublepage
+\phantomsection
+\addcontentsline{toc}{chapter}{Popis slika}
+\listoffigures
+
+\input{ostalo/Zivotopis.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}

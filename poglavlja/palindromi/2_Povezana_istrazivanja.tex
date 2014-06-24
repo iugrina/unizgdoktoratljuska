@@ -1,0 +1,98 @@
+\section{Povezana istraživanja}
+\label{pal:sec:referencework}
+
+Vjerojatnosna svojstva različitih oblika nizova znakova
+(riječi) učestali su predmet istraživanja posljednja
+dva desetljeća. Povećanjem računalne moći te naročito
+probojem osobnih računala analiza nizova znakova,
+u prvom redu DNA nizova, postaje moguća te time
+i zanimljiva.
+
+Značaj palindroma za različite biološke nizove,
+kao što je prikazano u Uvodu, dovodi do potrebe
+za kvalitetnim alatima pri analiziranju svojstava
+palindroma kao i odnosa između palindroma i 
+nizova znakova u kojima se nalaze. Budući
+da su palindromi ustvari vrste riječi s posebnom
+strukturom, rezultate o vjerojatnosnim svojstvima
+riječi većinom je moguće izravno primijeniti
+i na palindrome.
+
+U poglavlju {\glqq}Statistike nad riječima s primjenama
+na biološkim nizovima'' knjige 
+\cite{lothaire_statistics_2005}[poglavlje 6]
+izvode se određena svojstva riječi pa time i palindroma.
+Za niz znakova pretpostavlja se da je generiran 
+homogenim Markovljevim lancem proizvoljnog reda
+(n.j.d. slučaj je reda 0)
+unoseći time zavisnost među
+elementima. Međutim, ista se zavisnost podrazumijeva
+za cijeli niz pa se time gubi ideja regija, odnosno
+nije moguće modelirati dijelove niza znakova kao
+različite regije s različitim distribucijama.
+Među prezentiranim rezultatima bitno je spomenuti
+da su izneseni rezultati o asimptotskoj distribuciji
+broja palindroma kao i odgovarajućim procjeniteljima
+za očekivanje i varijancu. Također, dane su ocjene 
+kvalitete aproksimacija normalnom i Poissonovom
+distribucijom koristeće Steinovu i Chen-Steinovu
+metodu. Svi su rezultati dani za homogene modele,
+a autori navode da do trenutka pisanja knjige
+nisu upoznati sa statističkim rezultatima
+nad heterogenim modelima.
+
+Knjiga \textcite{robin_dna_2005} prezentacija je dijela
+rezultata (tehnički manje zahtjevnih) spomenutih i u 
+knjizi \cite{lothaire_statistics_2005}
+uz dodatak ilustracije važnosti aproksimacija broja
+palindroma kroz uvod u bioinformatiku.
+
+\textcite{chew_scoring_2005} promatraju problem
+određivanja klastera unutar DNA nizova s velikim
+(neočekivanim) brojem palindroma.
+Kao pomoć pri klasteriranju definiraju tri
+različite težine palindroma dajući tim
+određenim palindromima prednost nad drugima.
+U radu se pretpostavlja homogeni model DNA niza.
+
+
+\textcite{leung_nonrandom_2005} također promatraju problem određivanja
+iznimnih klastera palindroma. U radu se daje dokaz nekih
+osnovnih svojstava palindroma u DNA nizovima te
+se izvodi aproksimacija pojavljivanja palindroma
+Poissonovim procesom za n.j.d. model DNA niza
+uz uvjet $p_A=p_T$ i $p_C = p_G$.
+
+Distribucija broja palindroma po različitim regijama
+ljudskog genoma empirijski je određena
+u \textcite{lu_human_2007}.
+
+U \textcite{chan_importance_2010} prikazana je primjena
+računalnih simulacija, definirani su specifični algoritmi,
+na određivanje distribucije broja riječi (ne nužno palindroma).
+
+\textcite{robin_numerical_2001} daju numeričku usporedbu
+nekoliko aproksimacija distribucije broja riječi
+(međusobno i naspram egzaktne distribucije)
+u slučajnim nizovima znakova.
+Korištene su aproksimacije normalnom i 
+složenom Poissonovom razdiobom.
+Pretpostavlja se homogeni Markovljev model kao
+model niza znakova.
+
+\textcite{zhai_normal_2012} izvode aproksimaciju 
+normalnom i složenom Poissonovom razdiobom 
+za distribuciju broja riječi kod
+NGS (Next generation sequencing) tehnika modeliranja
+nizova znakova.
+
+U diplomskom radu \textcite{gacesa_zastupljenost_2011} razvijen je računalni program
+za određivanje očekivanog broja palindroma u kodirajućoj DNA. Program se zasniva
+na uspoređivanju broja palindroma u zadanom nizu i u računalno generiranim 
+nizovima koji se od zadanog niza razlikuju samo po položaju sinonimnih kodona.
+
+Autor ovog doktorskog rada, u koautorstvu s D. Špoljarićem, 
+objavio je sažetu verziju
+rezultata prezentiranih u ovom poglavlju kao dio rada
+\textcite{spoljaric_statistical_2013}.
+

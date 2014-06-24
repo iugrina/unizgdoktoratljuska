@@ -1,0 +1,93 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% KORISNE KRATICE (komande)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% koristimo kod prvog pojavljivanja pojma
+\newcommand{\be}[1]{\textbf{\em{#1}}}
+
+% konvergencija
+\newcommand{\konv}[2]{#1 \rightarrow #2}
+
+% konvergencija gotovo sigurno
+\newcommand{\konvgs}[2]{#1 \xrightarrow{g.s.} #2}
+\newcommand{\nkonvgs}[2]{#1 \not \xrightarrow{g.s} #2}
+% konvergencija po vjerojatnosti
+\newcommand{\konvpv}[2]{#1 \xrightarrow{P} #2}
+\newcommand{\nkonvpv}[2]{#1 \not \xrightarrow{P} #2}
+% konvergencija po distribuciji
+\newcommand{\konvpd}[2]{#1 \xrightarrow{D} #2}
+\newcommand{\nkonvpd}[2]{#1 \not \xrightarrow{D} #2}
+% konvergencija u srednjem
+\newcommand{\konvusr}[3]{#1 \xrightarrow{L^{#3}} #2}
+\newcommand{\nkonvusr}[3]{#1 \not \xrightarrow{L^{#3}} #2}
+
+% skalar
+\newcommand{\ts}[1]{\lowercase{#1}}
+% vektor
+\newcommand{\tv}[1]{\mathbf{\lowercase{#1}}}
+% matrica 
+\newcommand{\tmatrix}[1]{\uppercase{#1}}
+% tenzor
+\newcommand{\ttenzor}[1]{\mathbf{\uppercase{#1}}}
+% slucajna varijabla
+\newcommand{\tsvar}[1]{\uppercase{#1}}
+% slucajan vektor
+\newcommand{\tsvek}[1]{\uppercase{\textbf{#1}}}
+
+% niz znakova od interesa
+\newcommand{\nz}[1]{{\sc #1}}
+% specijalno za DNA kao hack da ih prvo spusti
+% jer sam ih pisao velikim slovima
+\newcommand{\nzdna}[1]{{\sc{\lowercase{#1}}}}
+% specijalno za slicnost stringova
+% jer se small caps ne prikazuje najbolje u math modu
+\newcommand{\nzk}[1]{{\textit{#1}}}
+
+% povlaka nad slovom u math modu
+\newcommand{\ol}[1]{\widetilde{#1}}
+
+% dupla povlaka nad slovom
+% u math modu
+\newcommand{\dol}[1]{\ol{\ol{#1}}}
+
+% povlaka nad slovom u textmodu
+\newcommand{\tol}[1]{\~{#1}}
+
+%%%%%%%
+% vjerojatnosni simboli
+\newcommand{\vP}{\mathrm{P}}
+\newcommand{\vE}[1]{\mathrm{E}\left(#1\right)}
+\newcommand{\vVar}[1]{\mathrm{Var}\left(#1\right)}
+\newcommand{\vCov}[1]{\mathrm{Cov}\left(#1\right)}
+
+
+%%%%%%%
+% matematicki skupovi
+\newcommand{\setN}{\mathbb{N}}
+\newcommand{\setZ}{\mathbb{Z}}
+\newcommand{\setQ}{\mathbb{Q}}
+\newcommand{\setR}{\mathbb{R}}
+\newcommand{\setC}{\mathbb{C}}
+\newcommand\scalemath[2]{\scalebox{#1}{\mbox{\ensuremath{\displaystyle #2}}}}
+
+
+%%%%%%%
+% neke funkcije/operatori
+\DeclareMathOperator{\tg}{tg}
+\DeclareMathOperator{\ctg}{ctg}
+\DeclareMathOperator{\arctg}{arctg}
+\DeclareMathOperator{\arcctg}{arcctg}
+\DeclareMathOperator{\sh}{sh}
+\DeclareMathOperator{\tgh}{th}
+\DeclareMathOperator{\cth}{cth}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\slika}{Im}
+\DeclareMathOperator{\rang}{rang}
+\DeclareMathOperator{\vek}{vec}
+\DeclareMathOperator{\Span}{span}
+
+%%%%%%%
+% ostalo
+\newcommand{\mbold}[1]{\mathbf{#1}}
+\newcommand{\diag}{\mathop{\mathrm{diag}}}
+

@@ -1,0 +1,91 @@
+\section{Osnovni pojmovi matematičke statistike}
+
+Neka je $\Omega$ neprazan skup, $\mathcal{F}$ $\sigma$-algebra
+nad skupom $\Omega$ te $\mathcal{P}$ familija dopuštenih
+vjerojatnosnih razdioba nad $(\Omega, \mathcal{F})$
+indeksirana nekim parametrom $\theta$:
+\[
+	\mathcal{P} = \left\{ P_{\tv{\theta}} : \tv{\theta} \in \Theta \right\}
+\]
+gdje je $\Theta \subset \mathbb{R}^k,$ $\Theta \neq \emptyset$
+skup svih dopuštenih vrijednosti
+parametra $\theta$ neke vjerojatnosne razdiobe.
+Uređenu trojku
+$(\Omega, \mathcal{F}, \mathcal{P})$
+zovemo 
+\be{statistički eksperiment}
+\index{statistički eksperiment}
+ili
+\be{statistički model}.
+\index{statistički model}
+
+\begin{defn}
+	Slučajni vektor $\tsvek{X}=(\tsvar{X}_1,\ldots,\tsvar{X}_n)$
+	čije su komponente nezavisne
+	slučajne varijable sa zajedničkom vjerojatnosnom razdiobom,
+	tj. za čiju funkciju distribucije vrijedi
+	\[
+		\vP_\theta (\tsvar{X}_1 \leq x_1, \ldots, \tsvar{X}_n \leq x_n) =
+		\vP_\theta (\tsvar{X}_1 \leq x_1) \cdots \vP_\theta(\tsvar{X}_n \leq x_n) \ ,
+		\ \forall \theta \in \Theta , \ \forall (x_1,\ldots,x_n) \in \setR^n
+	\]	
+	nazivamo \be{slučajnim uzorkom}
+	\index{slučajni uzorak}
+	veličine $n$.
+\end{defn}
+
+
+\begin{defn}
+	\be{Procjenitelj}
+	\index{procjenitelj}
+	nepoznatog parametra $\theta$ je 
+	slučajna varijabla $\hat{\tsvar{T}}$, definirana kao 
+	funkcija slučajnog uzorka $\tsvek{X}$. Piše se
+	\[
+		\hat{\tsvar{T}} = h(\tsvek{X}) = h(\tsvar{X}_1,\ldots,\tsvar{X}_n) \ ,
+	\]
+	gdje je $h$ realna funkcija $n$ realnih varijabli.
+\end{defn}
+
+Slučajnu varijablu kao funkciju slučajnog uzorka uobičajeno je
+u matematičkoj statistici zvati 
+\be{statistikom}
+\index{statistika}
+pa se može reći da je procjenitelj statistika.
+
+\begin{defn}
+	Procjenitelj koji zadovoljava $\mathrm{E}_{\theta} \left(\hat{\tsvar{T}}\right) = \theta$
+	zovemo \be{nepristrani procjenitelj}.
+	\index{procjenitelj!nepristran}
+\end{defn}
+
+Budući da veličina uzorka u primjenama teorije statističkog
+zaključivanja  može varirati korisno je
+za procjenitelj uvesti i oznaku
+\[
+	\hat{\tsvar{T}}_n = h(\tsvar{X}_{1},\ldots,\tsvar{X}_{n}),\ n \in \mathbb{N} \ ,
+\]
+kako bi se istakla i ovisnost o veličini $n$.  Prijašnjom je relacijom
+ustvari definiran beskonačan niz slučajnih varijabli
+$(\hat{\tsvar{T}}_{n})_{n \in \mathbb{N}}$.
+
+\begin{defn}
+	Neka je $\left\{ P_\theta: \theta \in \Theta \right\}$
+	familija distribucija te $\tsvek{X} = \left\{ \tsvar{X}_1,\tsvar{X}_2,\ldots \right\}$
+	beskonačan slučajan uzorak.
+	Za niz procjenitelja $(\tsvar{T}_{n})$ parametra $g(\theta)$ kažemo da je 
+	\be{konzistentan}
+	\index{procjenitelj!konzistentan}
+	za parametar $g(\theta)$ ako vrijedi
+	\[
+		\hat{T}_{n} \overset{P_\theta}{\longrightarrow} g(\theta), \ 
+		\forall \theta \in \Theta \ .
+	\]
+\end{defn}
+
+%\textcolor{red}{Treba li objašnjavati:
+%Kolmogorov-Smirnov test, Chi-kvadrat test, p-vrijednost ???}
+
+\noindent
+Opširniji uvod u matematičku statistiku može se naći u
+\textcite{pausestatistika} ili \textcite{schervish_theory_1995}.

@@ -1,0 +1,29 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ENVIRONMENTI
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\NewDocumentEnvironment{primjer_}{o}
+{
+	\refstepcounter{tm}
+	\IfNoValueTF {#1}
+	{ 
+		\noindent
+		{\textbf{Primjer \thechapter.\arabic{tm}}}}
+	{ 
+		\noindent
+		{\textbf{Primjer \thechapter.\arabic{tm}} (#1)}}
+}
+{ \hspace*{\stretch{1}}\rule{1ex}{1ex} }
+
+\NewDocumentEnvironment{napomena_}{o}
+{
+	\refstepcounter{tm}
+	\IfNoValueTF {#1}
+	{ 
+		\noindent
+		{\textbf{Napomena \thechapter.\arabic{tm}}}}
+	{ 
+		\noindent
+		{\textbf{Napomena \thechapter.\arabic{tm} } (#1)}}
+}
+{ \hspace*{\stretch{1}}\rule{1ex}{1ex} }
