@@ -11,9 +11,12 @@ Nekoliko natuknica (dok ne uhvatim vremena napisati malo bolju dokumentaciju)
 * folder "doc" sadrži primjerak disertacije te će jednog dana sadržavati i dokumentaciju
 * datoteka "documet.tex" je glavna (ishodišna) tex datoteka (NJU KOMPAJLIRATE!)
 * folder "dodatno" sadrži dodatne postavke poput paketa, glossaryja, dodatnih komandi i environmenta
-* folder "naslovnice" sadrži naslovnice. Potrebno je editirati naslov.tex i prilagoditi odgovarajuće varijable. Nakon toga teba kompajlirati naslov.tex
+* folder "naslovnice" sadrži naslovnice. Potrebno je editirati naslov.tex i 
+  prilagoditi odgovarajuće varijable. Nakon toga treba kompajlirati naslov.tex
 * folder "ostalo" sadrži sažetak, zaključak i slično
 * folder "poglavlja" sadrži poglavlja i odgovarajuća potpoglavlja
+* folder "skripte" sadrži korisne \*nix skripte za prebacivanje između utf-ascii
+  te hrvatske navodnike
 
 
 **Kompajliranje**:
